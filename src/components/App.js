@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import {
   FaAngleDoubleRight,
-  FaTemperatureHigh,
 } from "react-icons/fa";
 
 const url = "https://course-api.com/react-tabs-project";
@@ -49,12 +48,14 @@ function App() {
       <div className="jobs-center">
         {/* btn container */}
         <div className="btn-container">
-          {jobs.map((job, index) => {
+          {jobs.map((job, index) => { 
             return (
               <button
                 key={job.id}
                 onClick={() => setValue(index)}
-                className={`job-btn `}
+                className={`job-btn ${
+                  index === value && "active-btn"
+                }`}
               >
                 {job.company}
               </button>
